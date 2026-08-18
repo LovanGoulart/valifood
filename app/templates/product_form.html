@@ -35,25 +35,39 @@
     </div>
     {% endif %}
 
+    {% if reactivate %}
+    <div class="barcode-info" style="border-left:3px solid #10b981;">
+        <span class="barcode-label">♻️ Produto excluído anteriormente — nome, marca e categoria já preenchidos. Complete o restante.</span>
+    </div>
+    {% endif %}
+
     <form method="POST" class="product-form" id="product-form">
+        {% if reactivate %}
+        <input type="hidden" name="reactivate_id" value="{{ reactivate.id }}">
+        {% endif %}
         <div class="form-group">
             <label for="name">Nome do alimento *</label>
-            <input type="text" id="name" name="name" required 
-                   value="{{ product.name if product else '' }}"
+            <input type="text" id="name" name="name" required
+                   value="{{ product.name if product else (reactivate.name if reactivate else '') }}"
                    placeholder="Ex: Arroz Branco" autocomplete="off">
         </div>
 
         <div class="form-row">
             <div class="form-group">
                 <label for="barcode">Código de barras</label>
-                <input type="text" id="barcode" name="barcode" 
-                       value="{{ product.barcode if product else (barcode or '') }}"
-                       placeholder="7891234567890">
+                <div class="barcode-input-group">
+                    <input type="text" id="barcode" name="barcode" 
+                           value="{{ product.barcode if product else (barcode or '') }}"
+                           placeholder="7891234567890" autocomplete="off">
+                    <button type="button" class="btn btn-scan" onclick="openScannerModal()" title="Escanear código de barras">
+                        📷
+                    </button>
+                </div>
             </div>
             <div class="form-group">
                 <label for="brand">Marca</label>
-                <input type="text" id="brand" name="brand" 
-                       value="{{ product.brand if product else '' }}"
+                <input type="text" id="brand" name="brand"
+                       value="{{ product.brand if product else (reactivate.brand if reactivate else '') }}"
                        placeholder="Ex: Tio João">
             </div>
         </div>
@@ -64,7 +78,7 @@
                 <select id="category_id" name="category_id">
                     <option value="">Selecione...</option>
                     {% for cat in categories %}
-                    <option value="{{ cat.id }}" {% if product and product.category_id == cat.id %}selected{% endif %}>
+                    <option value="{{ cat.id }}" {% if (product and product.category_id == cat.id) or (reactivate and reactivate.category_id == cat.id) %}selected{% endif %}>
                         {{ cat.icon }} {{ cat.name }}
                     </option>
                     {% endfor %}
@@ -104,17 +118,15 @@
             <label class="checkbox-label">
                 <input type="checkbox" id="no_expiration" name="no_expiration" 
                        {% if product and product.no_expiration %}checked{% endif %}>
-                <span>☐ Produto sem validade</span>
+                <span> Produto sem validade</span>
             </label>
         </div>
 
         <div class="form-group" id="expiration-group">
             <label for="expiration_date">Data de validade *</label>
-            <input type="text" id="expiration_date" name="expiration_date" 
-                   value="{{ product.expiration_date.strftime('%d/%m/%Y') if product and product.expiration_date else '' }}"
-                   placeholder="DD/MM/AAAA" maxlength="10"
+            <input type="date" id="expiration_date" name="expiration_date" 
+                   value="{{ product.expiration_date.isoformat() if product and product.expiration_date else '' }}"
                    {% if not product or not product.no_expiration %}required{% endif %}>
-            <small>Formato: 31/12/2026</small>
         </div>
 
         <div class="form-group">
@@ -143,6 +155,7 @@ document.getElementById('no_expiration').addEventListener('change', function() {
         group.style.opacity = '0.5';
         input.removeAttribute('required');
         input.disabled = true;
+        input.value = '';
     } else {
         group.style.opacity = '1';
         input.setAttribute('required', 'required');
@@ -150,35 +163,18 @@ document.getElementById('no_expiration').addEventListener('change', function() {
     }
 });
 
-// Máscara simples para data
-document.getElementById('expiration_date').addEventListener('input', function(e) {
-    let v = e.target.value.replace(/\D/g, '');
-    if (v.length >= 2) v = v.slice(0,2) + '/' + v.slice(2);
-    if (v.length >= 5) v = v.slice(0,5) + '/' + v.slice(5,9);
-    e.target.value = v;
-});
-
-// Verificar data passada
 const form = document.getElementById('product-form');
 form.addEventListener('submit', function(e) {
     const expInput = document.getElementById('expiration_date');
     const noExp = document.getElementById('no_expiration').checked;
     if (!noExp && expInput.value) {
-        const parts = expInput.value.split('/');
-        if (parts.length === 3) {
-            const date = new Date(parts[2], parts[1]-1, parts[0]);
-            const today = new Date();
-            today.setHours(0,0,0,0);
-            if (date < today) {
-                if (!confirm('⚠️ A data informada já passou. Deseja cadastrar mesmo assim?')) {
-                    e.preventDefault();
-                    return false;
-                }
-                const confirmInput = document.createElement('input');
-                confirmInput.type = 'hidden';
-                confirmInput.name = 'confirm_past';
-                confirmInput.value = '1';
-                form.appendChild(confirmInput);
+        const date = new Date(expInput.value);
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        if (date < today) {
+            if (!confirm('⚠️ A data informada já passou. Deseja cadastrar mesmo assim?')) {
+                e.preventDefault();
+                return false;
             }
         }
     }
