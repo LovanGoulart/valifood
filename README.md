@@ -45,49 +45,37 @@ Clique em uma imagem para consultar a captura no tamanho original.
 
 Página inicial com acesso às categorias e histórico recente de cadastros, alterações e remoções.
 
-<a href="tela%20inicial.png">
-  <img src="tela%20inicial.png" alt="Tela inicial do ValiFood" width="400">
-</a>
+<img src="tela%20inicial.jpeg" alt="Tela inicial do ValiFood" width="350">
 
 ### Leitura de código de barras
 
 O botão Scan abre a câmera para identificar o código de barras de um produto e iniciar o fluxo de cadastro ou movimentação.
 
-<a href="scanear%20c%C3%B3digo%20de%20barras.png">
-  <img src="scanear%20c%C3%B3digo%20de%20barras.png" alt="Leitura de código de barras pela câmera" width="400">
-</a>
+<img src="scanear%20c%C3%B3digo%20de%20barras.jpeg" alt="Leitura de código de barras" width="350">
 
 ### Cadastro de produtos
 
 Formulário com nome, código de barras, marca, categoria, local de armazenamento, quantidade, unidade e data de validade.
 
-<a href="cadastro%20de%20produto.png">
-  <img src="cadastro%20de%20produto.png" alt="Formulário de cadastro de produto" width="400">
-</a>
+<img src="cadastro%20de%20%20produto.jpeg" alt="Cadastro de produto" width="350">
 
 ### Acompanhamento dos produtos
 
 Listagem com busca, filtros de vencimento e informações sobre quantidade, marca, local e situação da validade.
 
-<a href="produtos.jpeg">
-  <img src="produtos.jpeg" alt="Listagem e acompanhamento dos produtos" width="400">
-</a>
+<img src="produtos.jpeg" alt="Listagem de produtos" width="350">
 
 ### Alertas de validade
 
 Tela para identificar produtos vencidos e próximos do vencimento, com indicação da data e da quantidade disponível.
 
-<a href="alertas.png">
-  <img src="alertas.png" alt="Alertas de validade dos produtos" width="400">
-</a>
+<img src="alertas.jpeg" alt="Alertas de validade" width="350">
 
 ### Configurações
 
 Tela com informações do perfil e opções para definir as preferências de antecedência dos alertas.
 
-<a href="configura%C3%A7%C3%B5es.png">
-  <img src="configura%C3%A7%C3%B5es.png" alt="Configurações do ValiFood" width="400">
-</a>
+<img src="configura%C3%A7%C3%B5es.jpeg" alt="Configurações" width="350">
 
 ## Fluxo de utilização
 
