@@ -39,41 +39,55 @@ A aplicação é utilizada na organização doméstica e recebe melhorias confor
 
 ## 📸 Demonstração do sistema
 
+Clique em uma imagem para consultar a captura no tamanho original.
+
 ### Tela inicial
 
 Página inicial com acesso às categorias e histórico recente de cadastros, alterações e remoções.
 
-<img src="tela%20inicial.png" alt="Tela inicial do ValiFood" width="300">
+<a href="tela%20inicial.png">
+  <img src="tela%20inicial.png" alt="Tela inicial do ValiFood" width="400">
+</a>
 
 ### Leitura de código de barras
 
 O botão Scan abre a câmera para identificar o código de barras de um produto e iniciar o fluxo de cadastro ou movimentação.
 
-<img src="scanear%20c%C3%B3digo%20de%20barras.png" alt="Leitura de código de barras pela câmera" width="300">
+<a href="scanear%20c%C3%B3digo%20de%20barras.png">
+  <img src="scanear%20c%C3%B3digo%20de%20barras.png" alt="Leitura de código de barras pela câmera" width="400">
+</a>
 
 ### Cadastro de produtos
 
 Formulário com nome, código de barras, marca, categoria, local de armazenamento, quantidade, unidade e data de validade.
 
-<img src="cadastro%20de%20produto.png" alt="Formulário de cadastro de produto" width="300">
+<a href="cadastro%20de%20produto.png">
+  <img src="cadastro%20de%20produto.png" alt="Formulário de cadastro de produto" width="400">
+</a>
 
 ### Acompanhamento dos produtos
 
 Listagem com busca, filtros de vencimento e informações sobre quantidade, marca, local e situação da validade.
 
-<img src="produtos(1).png" alt="Listagem e acompanhamento dos produtos" width="300">
+<a href="produtos.jpeg">
+  <img src="produtos.jpeg" alt="Listagem e acompanhamento dos produtos" width="400">
+</a>
 
 ### Alertas de validade
 
 Tela para identificar produtos vencidos e próximos do vencimento, com indicação da data e da quantidade disponível.
 
-<img src="alertas.png" alt="Alertas de validade dos produtos" width="300">
+<a href="alertas.png">
+  <img src="alertas.png" alt="Alertas de validade dos produtos" width="400">
+</a>
 
 ### Configurações
 
 Tela com informações do perfil e opções para definir as preferências de antecedência dos alertas.
 
-<img src="configura%C3%A7%C3%B5es.png" alt="Configurações do ValiFood" width="300">
+<a href="configura%C3%A7%C3%B5es.png">
+  <img src="configura%C3%A7%C3%B5es.png" alt="Configurações do ValiFood" width="400">
+</a>
 
 ## Fluxo de utilização
 
@@ -184,7 +198,7 @@ app/
 ## Aspectos técnicos do projeto
 
 - Organização do backend com Blueprints do Flask.
-- Criação da aplicação por meio de uma função create_app.
+- Criação da aplicação por meio de uma função `create_app`.
 - Persistência de usuários, produtos, categorias e movimentações.
 - Consulta de produtos vinculados ao usuário autenticado.
 - Integração da câmera ao fluxo de identificação de produtos.
