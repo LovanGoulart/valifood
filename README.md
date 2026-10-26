@@ -61,7 +61,7 @@ Formulário com nome, código de barras, marca, categoria, local de armazenament
 
 Listagem com busca, filtros de vencimento e informações sobre quantidade, marca, local e situação da validade.
 
-<img src="produtos(1).jpeg" alt="Listagem e acompanhamento dos produtos" width="300">
+<img src="produtos(1).png" alt="Listagem e acompanhamento dos produtos" width="300">
 
 ### Alertas de validade
 
