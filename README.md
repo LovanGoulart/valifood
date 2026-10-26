@@ -43,37 +43,37 @@ A aplicação é utilizada na organização doméstica e recebe melhorias confor
 
 Página inicial com acesso às categorias e histórico recente de cadastros, alterações e remoções.
 
-![Tela inicial do ValiFood](tela%20inicial.png)
+<img src="tela%20inicial.png" alt="Tela inicial do ValiFood" width="300">
 
 ### Leitura de código de barras
 
 O botão Scan abre a câmera para identificar o código de barras de um produto e iniciar o fluxo de cadastro ou movimentação.
 
-![Leitura de código de barras pela câmera](scanear%20c%C3%B3digo%20de%20barras.png)
+<img src="scanear%20c%C3%B3digo%20de%20barras.png" alt="Leitura de código de barras pela câmera" width="300">
 
 ### Cadastro de produtos
 
 Formulário com nome, código de barras, marca, categoria, local de armazenamento, quantidade, unidade e data de validade.
 
-![Formulário de cadastro de produto](cadastro%20de%20%20produto.png)
+<img src="cadastro%20de%20produto.png" alt="Formulário de cadastro de produto" width="300">
 
 ### Acompanhamento dos produtos
 
 Listagem com busca, filtros de vencimento e informações sobre quantidade, marca, local e situação da validade.
 
-![Listagem e acompanhamento dos produtos](produtos.png)
+<img src="produtos(1).jpeg" alt="Listagem e acompanhamento dos produtos" width="300">
 
 ### Alertas de validade
 
 Tela para identificar produtos vencidos e próximos do vencimento, com indicação da data e da quantidade disponível.
 
-![Alertas de validade dos produtos](alertas.png)
+<img src="alertas.png" alt="Alertas de validade dos produtos" width="300">
 
 ### Configurações
 
 Tela com informações do perfil e opções para definir as preferências de antecedência dos alertas.
 
-![Configurações do ValiFood](configura%C3%A7%C3%B5es.png)
+<img src="configura%C3%A7%C3%B5es.png" alt="Configurações do ValiFood" width="300">
 
 ## Fluxo de utilização
 
